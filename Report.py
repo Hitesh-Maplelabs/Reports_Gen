@@ -110,7 +110,7 @@ class Chart(object):
 
 
 if __name__ == "__main__":
-    test = Chart(outdir='E:/Maple-labs/programs', chartname='barchart0.png')
+    test = Chart(outdir='./output', chartname='barchart0.png')
     AA = test.createbarchart(('Shared Memory', 'Balloon Memory', 'Consumed memory'), (1, 5, 8), 'Parameters', 'Values',
                              'Memory Allocation')
     print AA
@@ -121,13 +121,13 @@ if __name__ == "__main__":
             ]
     A = ReportPdf()
     A.addtable(2, 4, data)
-    A.addimage('barchart0.png')
-    A.addimage('barchart0.png')
-    A.addimage('barchart0.png')
+    A.addimage('./output/barchart0.png')
+    A.addimage('./output/barchart0.png')
+    A.addimage('./output/barchart0.png')
     A.pagebreak()
-    A.addtwoimagesinrow('newgraph_u7.png', 'newgraph_u7.png')
-    A.builpdf('E:/Maple-labs/programs/test2.pdf')
+    A.addtwoimagesinrow('./output/barchart0.png', './output/barchart0.png')
+    A.builpdf('./output/test2.pdf')
 
-    ReportPdf.pdfmerger('result.pdf', 'report.pdf', 'test1.pdf', 'test2.pdf')
-    value = ReportPdf.gettotalpages('E:/Maple-labs/programs/result.pdf')
+    ReportPdf.pdfmerger('./output/result_test.pdf', './input/report.pdf', './output/test2.pdf')
+    value = ReportPdf.gettotalpages('./output/result_test.pdf')
     print "Total Pages in pdf are: ", value
